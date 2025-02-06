@@ -21,11 +21,11 @@ export let config = {
         batteryPercentage: opt<boolean>(true),
       },
       workspacesIndicator: {
-        reverseScrollDirection: opt<boolean>(false),
+        reverseScrollDirection: opt<boolean>(true),
       },
     },
   },
-  vertical: opt<boolean>(false),
+  vertical: opt<boolean>(true),
   lockCommand: opt<string | null>(null),
   minWorkspaces: opt<number>(3),
   popups: {
