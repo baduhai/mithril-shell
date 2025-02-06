@@ -65,6 +65,14 @@ in
     };
 
     settings = {
+      vertical = mkOption {
+        type = types.bool;
+        default = false;
+        description = ''
+          Vertical layout. Moves bar to the left and quicksettings popup to the bottom left.
+        '';
+      };
+
       animations = {
         activeWorkspace = mkOption {
           type = types.enum [
@@ -129,14 +137,6 @@ in
           '';
         };
       };
-    };
-
-    vertical = mkOption {
-      type = types.bool;
-      default = false;
-      description = ''
-        Vertical layout. Moves bar to the left and quicksettings popup to the bottom left.
-      '';
     };
 
     integrations = {
