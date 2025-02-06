@@ -131,6 +131,14 @@ in
       };
     };
 
+    vertical = mkOption {
+      type = types.bool;
+      default = false;
+      description = ''
+        Vertical layout. Moves bar to the left and quicksettings popup to the bottom left.
+      '';
+    };
+
     integrations = {
       hyprland.enable = mkOption {
         type = types.bool;
