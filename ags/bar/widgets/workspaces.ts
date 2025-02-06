@@ -126,21 +126,17 @@ export const Workspaces = (monitor: number) =>
     on_scroll_up: () => {
       const reverse = config.bar?.modules?.workspaces?.reverseScrollDirection ?? false;
       if (reverse) {
-        // hyprland.messageAsync("dispatch workspace -1");
-        Utils.execAsync("hyprnome --previous"),
+        Utils.execAsync("hyprnome --previous");
       } else {
-        // hyprland.messageAsync("dispatch workspace +1");
-        Utils.execAsync("hyprnome"),
+        Utils.execAsync("hyprnome");
       }
     },
     on_scroll_down: () => {
       const reverse = config.bar?.modules?.workspaces?.reverseScrollDirection ?? false;
       if (reverse) {
-        // hyprland.messageAsync("dispatch workspace +1");
-        Utils.execAsync("hyprnome"),
+        Utils.execAsync("hyprnome");
       } else {
-        // hyprland.messageAsync("dispatch workspace -1");
-        Utils.execAsync("hyprnome --previous"),
+        Utils.execAsync("hyprnome --previous");
       }
     },
   });
