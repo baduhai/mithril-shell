@@ -125,38 +125,22 @@ export const Workspaces = (monitor: number) =>
     }),
     on_scroll_up: () => {
       const reverse = config.bar?.modules?.workspaces?.reverseScrollDirection ?? false;
-      
       if (reverse) {
-        // Reverse behavior: scroll up = workspace -1
-        hyprland.messageAsync("dispatch workspace -1");
+        // hyprland.messageAsync("dispatch workspace -1");
+        Utils.execAsync("hyprnome --previous"),
       } else {
-        // Original behavior: scroll up = workspace +1
-        if (
-          hyprland.getMonitor(monitor) &&
-          // @ts-ignore: Object is possibly 'null'.
-          hyprland.getMonitor(monitor).activeWorkspace.id >= maxWorkspaces
-        ) {
-          return;
-        }
-        hyprland.messageAsync("dispatch workspace +1");
+        // hyprland.messageAsync("dispatch workspace +1");
+        Utils.execAsync("hyprnome"),
       }
     },
     on_scroll_down: () => {
       const reverse = config.bar?.modules?.workspaces?.reverseScrollDirection ?? false;
-
       if (reverse) {
-        // Reverse behavior: scroll down = workspace +1 (with limit check)
-        if (
-          hyprland.getMonitor(monitor) &&
-          // @ts-ignore: Object is possibly 'null'.
-          hyprland.getMonitor(monitor).activeWorkspace.id >= maxWorkspaces
-        ) {
-          return;
-        }
-        hyprland.messageAsync("dispatch workspace +1");
+        // hyprland.messageAsync("dispatch workspace +1");
+        Utils.execAsync("hyprnome"),
       } else {
-        // Original behavior: scroll down = workspace -1
-        hyprland.messageAsync("dispatch workspace -1");
+        // hyprland.messageAsync("dispatch workspace -1");
+        Utils.execAsync("hyprnome --previous"),
       }
     },
   });
