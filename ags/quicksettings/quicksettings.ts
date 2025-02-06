@@ -115,14 +115,33 @@ export const Quicksettings = () => {
 
   return PopupWindow({
     name: "quicksettings",
-    location: "top-right",
+    location: config.vertical ? "bottom-left" : "top-right",
     child: Widget.Box({
       opacity: opacity.bind(),
       className: "quicksettings popup",
       vertical: true,
       hexpand: false,
       vexpand: false,
-      children: [
+      children: config.vertical ? [
+        Toggles(),
+
+        Sliders(),
+
+        Widget.CenterBox({
+          className: "button-row",
+          vertical: false,
+          startWidget: Widget.Box({
+            hpack: "start",
+            children: battery.available
+              ? [top_button_battery]
+              : top_buttons.slice(0, top_buttons.length / 2),
+          }),
+          endWidget: Widget.Box({
+            hpack: "end",
+            children: battery.available ? top_buttons : top_buttons.slice(top_buttons.length / 2),
+          }),
+        }),
+      ] : [
         Widget.CenterBox({
           className: "button-row",
           vertical: false,

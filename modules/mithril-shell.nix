@@ -65,6 +65,14 @@ in
     };
 
     settings = {
+      vertical = mkOption {
+        type = types.bool;
+        default = false;
+        description = ''
+          Vertical layout. Moves bar to the left and quicksettings popup to the bottom left.
+        '';
+      };
+
       animations = {
         activeWorkspace = mkOption {
           type = types.enum [
@@ -89,6 +97,14 @@ in
           description = ''
             Shows the current battery percentage in the bar. Set to false to disable. The battery
             percentage is never shown if no battery is detected.
+          '';
+        };
+        workspacesIndicator.reverseScrollDirection = mkOption {
+          type = types.bool;
+          default = false;
+          description = ''
+            Reverse the scroll direction of the workspaces indicator, for all you natural
+            scrollling users.
           '';
         };
       };

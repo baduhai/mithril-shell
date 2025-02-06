@@ -36,6 +36,7 @@ export const StatusIndicators = () => {
     active: active.bind(),
     child: Widget.Box({
       className: "status-indicators",
+      vertical: config.vertical ?? false,
       children: [
         StatusIndicator({
           icon: Utils.merge(
