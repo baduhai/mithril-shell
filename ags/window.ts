@@ -32,7 +32,8 @@ const Padding = (props: {
 export const PopupWindow = (props: {
   name: string;
   child: Gtk.Widget;
-  location: "center" | "top-left" | "top-center" | "top-right";
+  location: "center" | "top-left" | "top-center" | "top-right" | "bottom-left" |
+            "bottom-center" | "bottom-right";
   popupAnimation?: typeof Revealer.prototype.transition;
   clickoff?: boolean;
   windowStyle?: string;
@@ -42,9 +43,12 @@ export const PopupWindow = (props: {
   const clickoff = props.clickoff ?? true;
 
   const pad_bottom = ["center", "top-left", "top-center", "top-right"].includes(props.location);
-  const pad_right = ["center", "top-left", "top-center"].includes(props.location);
-  const pad_left = ["center", "top-center", "top-right"].includes(props.location);
-  const pad_top = ["center"].includes(props.location);
+  const pad_right = ["center", "top-left", "top-center", "bottom-left", "bottom-center"]
+                    .includes(props.location);
+  const pad_left = ["center", "top-center", "top-right", "bottom-center", "bottom-right"]
+                   .includes(props.location);
+  const pad_top = ["center", "bottom-left", "bottom-center", "bottom-right"]
+                  .includes(props.location);
 
   return Widget.Window({
     className: props.windowStyle ?? "",

@@ -8,7 +8,7 @@ const hyprland = await Service.import("hyprland");
 const WorkspaceIndicator = (active: Binding<any, any, boolean>) =>
   Widget.Box({
     className: active.as((active) => `workspace-indicator${active ? " active" : ""}`),
-    vexpand: false,
+    vexpand: config.vertical ?? false,
     visible: true,
   });
 
@@ -20,6 +20,7 @@ export const Workspaces = (monitor: number) =>
     child: Widget.CenterBox({
       centerWidget: Widget.Box({
         className: "workspaces",
+        vertical: config.vertical ?? false,
         setup(self) {
           const calc_workspace_count = () => {
             // Workspaces start with ID 1. It is limited to 25 to keep it reasonable should hyprland
