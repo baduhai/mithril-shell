@@ -8,7 +8,7 @@ export const Bar = (monitor: number) =>
   Widget.Window({
     monitor,
     name: `bar${monitor}`,
-    className: "bar",
+    className: `bar${config.vertical ? " vertical" : ""}`,
     anchor: config.vertical ? ["left", "top", "bottom"] : ["top", "left", "right"],
     exclusivity: "exclusive",
     layer: "top",

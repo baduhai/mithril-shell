@@ -25,7 +25,7 @@ export let config = {
       },
     },
   },
-  vertical: opt<boolean>(true),
+  vertical: opt<boolean>(false),
   lockCommand: opt<string | null>(null),
   minWorkspaces: opt<number>(3),
   popups: {

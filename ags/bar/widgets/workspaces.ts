@@ -9,6 +9,7 @@ const WorkspaceIndicator = (active: Binding<any, any, boolean>) =>
   Widget.Box({
     className: active.as((active) => `workspace-indicator${active ? " active" : ""}`),
     vexpand: config.vertical ?? false,
+    vertical: config.vertical ?? false,
     visible: true,
   });
 
