@@ -9,9 +9,9 @@ let
   inherit (inputs) self;
   inherit (pkgs.hostPlatform) system;
 
-  cfg = config.programs.mithril-control-center;
+  cfg = config.programs.tritanium-control-center;
 
-  target = "mithril-control-center";
+  target = "tritanium-control-center";
 
   mkService = exec: {
     Unit = {
@@ -30,12 +30,12 @@ let
   };
 in
 {
-  options.programs.mithril-control-center = with lib; {
+  options.programs.tritanium-control-center = with lib; {
     enable = mkOption {
       type = types.bool;
-      default = config.services.mithril-shell.enable;
+      default = config.services.tritanium-shell.enable;
       description = ''
-        Enable mithril-control-center, a patched version of gnome-control-center.
+        Enable tritanium-control-center, a patched version of gnome-control-center.
 
         Patches include improving compatibility outside of GNOME and hiding unsupported and/or
         extraneous settings.
@@ -44,10 +44,10 @@ in
 
     package = mkOption {
       type = types.nullOr types.package;
-      default = self.packages.${system}.mithril-control-center;
-      defaultText = lib.literalExpression "inputs.mithril-shell.packages.\${system}.default";
+      default = self.packages.${system}.tritanium-control-center;
+      defaultText = lib.literalExpression "inputs.tritanium-shell.packages.\${system}.default";
       description = ''
-        The mithril-control-center package to use.
+        The tritanium-control-center package to use.
       '';
     };
 
@@ -90,11 +90,11 @@ in
     systemd.user = lib.mkIf cfg.compatibility.enable {
       targets.${target} = {
         Unit.description = ''
-          A group of services to complement mithril-control-center.
+          A group of services to complement tritanium-control-center.
         '';
 
         Install.WantedBy = [
-          "mithril-shell.service"
+          "tritanium-shell.service"
         ];
       };
 

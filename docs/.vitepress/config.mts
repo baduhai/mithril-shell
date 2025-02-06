@@ -2,7 +2,7 @@ import { defineConfig } from "vitepress";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "Mithril Shell",
+  title: "Tritanium Shell",
   description: "An opinionated desktop shell for hyprland based on GNOME.",
   markdown: {
     theme: {
@@ -10,16 +10,16 @@ export default defineConfig({
       dark: "catppuccin-mocha",
     },
   },
-  base: "/mithril-shell/",
+  base: "/tritanium-shell/",
   cleanUrls: true,
   lastUpdated: true,
   themeConfig: {
     outline: "deep",
 
-    socialLinks: [{ icon: "github", link: "https://github.com/andreashgk/mithril-shell" }],
+    socialLinks: [{ icon: "github", link: "https://github.com/andreashgk/tritanium-shell" }],
 
     editLink: {
-      pattern: "https://github.com/andreashgk/mithril-shell/edit/main/docs/:path",
+      pattern: "https://github.com/andreashgk/tritanium-shell/edit/main/docs/:path",
       text: "Edit this page on GitHub",
     },
 

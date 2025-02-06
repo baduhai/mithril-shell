@@ -1,6 +1,6 @@
 # Introduction
 
-Mithril Shell adds a few things to improve your linux desktop experience:
+Tritanium Shell adds a few things to improve your linux desktop experience:
 - A status bar at the top of your desktop.
 - A dropdown quicksettings menu accessible from the status bar.
 - A control center.

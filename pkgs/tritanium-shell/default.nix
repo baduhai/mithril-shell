@@ -4,7 +4,7 @@
   gammastep,
   grim,
   libnotify,
-  mithril-control-center,
+  tritanium-control-center,
   sassc,
   swaynotificationcenter,
   writeShellApplication,
@@ -13,7 +13,7 @@
   agsConfig ? ../../ags,
 }:
 writeShellApplication rec {
-  name = "mithril-shell";
+  name = "tritanium-shell";
 
   runtimeInputs = [
     ags
@@ -21,7 +21,7 @@ writeShellApplication rec {
     gammastep
     grim
     libnotify
-    mithril-control-center
+    tritanium-control-center
     sassc
     swaynotificationcenter
     wl-clipboard
@@ -30,7 +30,7 @@ writeShellApplication rec {
 
   text = ''
     XDG_DATA_DIRS=$XDG_DATA_DIRS:${adwaita-icon-theme}/share
-    exec ags -c ${agsConfig}/config.js -b mithril-shell "$@"
+    exec ags -c ${agsConfig}/config.js -b tritanium-shell "$@"
   '';
 
   derivationArgs.passthru.packages = runtimeInputs;

@@ -34,9 +34,9 @@
         formatter = pkgs.nixfmt-rfc-style;
 
         packages = {
-          inherit (pkgs) mithril-control-center mithril-shell;
+          inherit (pkgs) tritanium-control-center tritanium-shell;
 
-          mithril-docs = pkgs.callPackage ./docs {
+          tritanium-docs = pkgs.callPackage ./docs {
             inherit home-manager;
             hmModule = self.homeManagerModules.default;
           };
@@ -63,8 +63,8 @@
                 self.homeManagerModules.default
               ];
 
-              services.mithril-shell.enable = true;
-              services.mithril-shell.integrations.hyprland.enable = true;
+              services.tritanium-shell.enable = true;
+              services.tritanium-shell.integrations.hyprland.enable = true;
             };
           };
 
@@ -84,7 +84,7 @@
         devShells.default = pkgs.mkShell {
           packages =
             with pkgs;
-            pkgs.mithril-shell.passthru.packages
+            pkgs.tritanium-shell.passthru.packages
             ++ [
               biome
               sass

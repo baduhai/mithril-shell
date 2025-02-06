@@ -1,5 +1,5 @@
 const entry = `${App.configDir}/main.ts`;
-const dest = "/tmp/mithril-shell";
+const dest = "/tmp/tritanium-shell";
 
 function mkdir(dir) {
   Utils.subprocess(["mkdir", "-p", dir]);

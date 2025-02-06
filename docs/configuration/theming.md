@@ -3,7 +3,7 @@
 The color scheme can easily be changed by setting the following attributes:
 
 ```nix
-services.mithril-shell.theme.colors = {
+services.tritanium-shell.theme.colors = {
   primary = "#94e2d5";
   text = "#cdd6f4";
   background0 = "#181825";
@@ -19,5 +19,5 @@ use those colors.
 You can disable this behaviour like so:
 
 ```nix
-services.mithril-shell.integrations.stylix.enable = false;
+services.tritanium-shell.integrations.stylix.enable = false;
 ```

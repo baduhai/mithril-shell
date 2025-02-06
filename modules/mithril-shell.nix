@@ -10,8 +10,8 @@ let
   inherit (pkgs.hostPlatform) system;
 
   # Name that the systemd service for the bar will use.
-  service-name = "mithril-shell";
-  cfg = config.services.mithril-shell;
+  service-name = "tritanium-shell";
+  cfg = config.services.tritanium-shell;
 
   hexColorType = lib.mkOptionType {
     name = "hex-color";
@@ -25,25 +25,25 @@ let
       type = lib.types.coercedTo lib.types.str (lib.removePrefix "#") hexColorType;
       inherit default;
       example = default;
-      description = "An individual colour of the mithril-shell theme.";
+      description = "An individual colour of the tritanium-shell theme.";
     };
 in
 {
-  options.services.mithril-shell = with lib; {
+  options.services.tritanium-shell = with lib; {
     enable = mkOption {
       type = types.bool;
       default = false;
       description = ''
-        Whether to enable mithril-shell. Does not automatically start the bar in your window manager.
+        Whether to enable tritanium-shell. Does not automatically start the bar in your window manager.
       '';
     };
 
     package = mkOption {
       type = types.package;
-      default = self.packages.${system}.mithril-shell;
-      defaultText = lib.literalExpression "inputs.mithril-shell.packages.\${system}.mithril-shell";
+      default = self.packages.${system}.tritanium-shell;
+      defaultText = lib.literalExpression "inputs.tritanium-shell.packages.\${system}.tritanium-shell";
       description = ''
-        The mithril-shell package to use.
+        The tritanium-shell package to use.
       '';
     };
 
@@ -52,7 +52,7 @@ in
       readOnly = true;
       visible = false;
       description = ''
-        The resulting mithril-shell package.
+        The resulting tritanium-shell package.
       '';
     };
 
@@ -163,14 +163,14 @@ in
     # by your desktop environment.
     systemd.user.services.${service-name} = {
       Unit = {
-        Description = "Mithril Shell";
-        Documentation = "https://github.com/AndreasHGK/mithril-shell";
+        Description = "Tritanium Shell";
+        Documentation = "https://github.com/AndreasHGK/tritanium-shell";
         PartOf = [ "graphical-session.target" ];
         After = [ "graphical-session-pre.target" ];
       };
 
       Service = {
-        ExecStart = "${cfg.finalPackage}/bin/mithril-shell";
+        ExecStart = "${cfg.finalPackage}/bin/tritanium-shell";
         Restart = "on-failure";
         KillMode = "mixed";
       };
@@ -185,10 +185,10 @@ in
     };
 
     xdg.configFile = {
-      "mithril-shell/settings.json".text = builtins.toJSON cfg.settings;
+      "tritanium-shell/settings.json".text = builtins.toJSON cfg.settings;
     };
 
-    services.mithril-shell.finalPackage =
+    services.tritanium-shell.finalPackage =
       let
         generateThemeScss = colors: ''
           \$primary: #${colors.primary};

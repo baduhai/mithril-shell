@@ -45,7 +45,7 @@ export const Quicksettings = () => {
     icon: battery.bind("icon_name"),
     label: battery.bind("percent").as((percent) => ` ${percent}%`),
     onClick() {
-      Utils.execAsync("mithril-control-center power");
+      Utils.execAsync("tritanium-control-center power");
       App.closeWindow("quicksettings");
     },
   });
@@ -76,7 +76,7 @@ export const Quicksettings = () => {
     Button({
       icon: "settings-symbolic",
       onClick() {
-        Utils.execAsync("mithril-control-center");
+        Utils.execAsync("tritanium-control-center");
         App.closeWindow("quicksettings");
       },
     }),

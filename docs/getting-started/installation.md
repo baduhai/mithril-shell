@@ -2,12 +2,12 @@
 
 ## Requirements
 
-There are a few requirements needed in order to use mithril-shell:
+There are a few requirements needed in order to use tritanium-shell:
 - The nix package manager with [nix flakes](https://wiki.nixos.org/wiki/Flakes) enabled.
   [This nix installer](https://github.com/DeterminateSystems/nix-installer) is recommended.
 - The latest release version of hyprland.
 - [Home-manager](https://github.com/nix-community/home-manager) is required to install & configure
-  mithril-shell.
+  tritanium-shell.
   This project targets the NixOS unstable and latest NixOS stable channel.
 
 ::: info
@@ -19,11 +19,11 @@ supports standalone installation.
 
 ### Optional dependencies
 
-By default mithril-shell will open
+By default tritanium-shell will open
 [SwayNotificationCenter](https://github.com/ErikReider/SwayNotificationCenter) as its notification
 center.
 This is temporary behaviour until a native notification center is implemented
-([#8](https://github.com/AndreasHGK/mithril-shell/issues/8)).
+([#8](https://github.com/AndreasHGK/tritanium-shell/issues/8)).
 
 To correctly display the battery percentage the upower package is needed.
 
@@ -37,16 +37,16 @@ After
 [creating your initial flake](https://nix-community.github.io/home-manager/index.xhtml#ch-nix-flakes)
 or using your pre-existing flake, add the following line to your `flake.nix`'s inputs section:
 ```nix
-mithril-shell.url = "github:andreashgk/mithril-shell";
+tritanium-shell.url = "github:andreashgk/tritanium-shell";
 ```
 
-Add the `mithril-shell.homeManagerModules.default` module to the imports if your home configuration.
+Add the `tritanium-shell.homeManagerModules.default` module to the imports if your home configuration.
 You can then set the following options:
 ```nix
-services.mithril-shell.enable = true;
+services.tritanium-shell.enable = true;
 # Enable this if you want the bar to configure the necessary hyprland settings
 # for you. Without this the bar will not automatically start on launch.
-services.mithril-shell.integrations.hyprland.enable = true;
+services.tritanium-shell.integrations.hyprland.enable = true;
 ```
 
 ::: warning
@@ -65,10 +65,10 @@ templates:
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    mithril-shell.url = "github:andreashgk/mithril-shell";
+    tritanium-shell.url = "github:andreashgk/tritanium-shell";
   };
 
-  outputs = { nixpkgs, home-manager, mithril-shell, ... }:
+  outputs = { nixpkgs, home-manager, tritanium-shell, ... }:
     let
       # Can also be "aarch64-linux", for example if you are on asahi linux.
       system = "x86_64-linux";
@@ -79,10 +79,10 @@ templates:
         inherit pkgs;
 
         modules = [
-          mithril-shell.homeManagerModules.default
+          tritanium-shell.homeManagerModules.default
           {
-            services.mithril-shell.enable = true;
-            services.mithril-shell.integrations.hyprland.enable = true;
+            services.tritanium-shell.enable = true;
+            services.tritanium-shell.integrations.hyprland.enable = true;
           }
         ];
       };
@@ -102,8 +102,8 @@ home-manager switch
 nixos-rebuild switch
 ```
 
-To see any changes made to mithril-shell without rebooting you can run the following command:
+To see any changes made to tritanium-shell without rebooting you can run the following command:
 ```bash
 # Do not run this with sudo!
-systemctl --user restart mithril-shell
+systemctl --user restart tritanium-shell
 ```

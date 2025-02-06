@@ -37,13 +37,13 @@ let
         visible =
           option.visible
           && (
-            (builtins.elem "mithril-control-center" option.loc) || (builtins.elem "mithril-shell" option.loc)
+            (builtins.elem "tritanium-control-center" option.loc) || (builtins.elem "tritanium-shell" option.loc)
           );
       };
   };
 in
 stdenvNoCC.mkDerivation {
-  name = "mithril-docs";
+  name = "tritanium-docs";
   src = ./.;
 
   yarnOfflineCache = fetchYarnDeps {

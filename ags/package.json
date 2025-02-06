@@ -1,5 +1,5 @@
 {
-  "name": "mithril-shell",
+  "name": "tritanium-shell",
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
     "@types/tmp": "^0.2.6",

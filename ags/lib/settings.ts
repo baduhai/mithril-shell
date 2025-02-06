@@ -5,9 +5,9 @@ export let config_root = "";
 
 const xdg_config_home = GLib.getenv("XDG_CONFIG_HOME");
 if (xdg_config_home !== null) {
-  config_root = `${xdg_config_home}/mithril-shell`;
+  config_root = `${xdg_config_home}/tritanium-shell`;
 } else {
-  config_root = `${Utils.HOME}/.config/mithril-shell`;
+  config_root = `${Utils.HOME}/.config/tritanium-shell`;
 }
 
 /** The program configuration. */

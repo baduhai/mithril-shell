@@ -145,7 +145,7 @@ const toggle_buttons = {
       network.wifi.enabled = active;
     },
     onExpand() {
-      Utils.execAsync("mithril-control-center wifi");
+      Utils.execAsync("tritanium-control-center wifi");
       App.closeWindow("quicksettings");
     },
   }),
@@ -174,7 +174,7 @@ const toggle_buttons = {
       bluetooth.enabled = active;
     },
     onExpand() {
-      Utils.execAsync("mithril-control-center bluetooth");
+      Utils.execAsync("tritanium-control-center bluetooth");
       App.closeWindow("quicksettings");
     },
   }),
@@ -220,7 +220,7 @@ const toggle_buttons = {
       network.vpn.activateVpnConnection(sorted_cons[0]);
     },
     onExpand() {
-      Utils.execAsync("mithril-control-center network");
+      Utils.execAsync("tritanium-control-center network");
       App.closeWindow("quicksettings");
     },
   }),
