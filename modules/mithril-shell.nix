@@ -98,7 +98,7 @@ in
             Reverse the scroll direction of the workspaces indicator, for all you natural
             scrollling users.
           '';
-        }
+        };
       };
 
       lockCommand = mkOption {
