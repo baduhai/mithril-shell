@@ -20,6 +20,9 @@ export let config = {
       statusIndicators: {
         batteryPercentage: opt<boolean>(true),
       },
+      workspaces: {
+        reverseScrollDirection: opt<boolean>(false),
+      },
     },
   },
   lockCommand: opt<string | null>(null),
