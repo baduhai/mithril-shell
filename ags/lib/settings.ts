@@ -20,7 +20,7 @@ export let config = {
       statusIndicators: {
         batteryPercentage: opt<boolean>(true),
       },
-      workspaces: {
+      workspacesIndicator: {
         reverseScrollDirection: opt<boolean>(false),
       },
     },
